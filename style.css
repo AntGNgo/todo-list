@@ -1,25 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap');
 
 body {
-    font-family: 'Instrument Sans', sans-serif;
+	font-family: 'Instrument Sans', sans-serif;
+}
+
+h1 {
+	border-bottom: 3px solid black;
 }
 
 .todo-container {
-    display: flex;
-    width: 75vw;
-    margin: 0 auto; 
-    justify-content: space-between;
+	display: flex;
+	width: 85vw;
+	margin: 0 auto;
+	/* justify-content: space-between; */
+}
+
+.todo-dates {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding-right: 200px;
+	border-right: 3px solid black;
+}
+
+.todo-container--right {
+	margin-left: 5vw;
+	display: flex;
+	flex-direction: column;
 }
 
 body ul {
-    list-style-type: none;
-}
-
-.todo {
-    display: flex;
-    gap: 20px;
+	list-style-type: none;
 }
 
 .todo-title {
-    font-weight: 500;
+	font-weight: 500;
+}
+
+.todo-table {
 }

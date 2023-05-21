@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,62 @@
     <title>Todo List</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-   <h1>Todo List</h1> 
-   <div class="todo-container">
-    <div class="todo-container--left">
-        <ul class="todo-dates">
-            <li>Today</li>
-            <li>This Week</li>
-            <li>Someday</li>
-        </ul>
-        <ul class="todo-categories">
 
-        </ul>
-    </div>
-    <div class="todo-container--right">
-        <div class="todo">
-            <input type="checkbox" name="completed" id="todo-completed">
-            <p class="todo-title">Placeholder todo</p>
-            <p class="todo-description">Todo description</p>
-            <p class="todo-duedate">5/12/2023</p>
-            <p class="todo-priority">High</p>
+<body>
+    <h1>Todo List</h1>
+    <div class="todo-container">
+        <div class="todo-container--left">
+            <ul class="todo-dates">
+                <li>Today</li>
+                <li>This Week</li>
+                <li>Someday</li>
+            </ul>
+            <ul class="todo-categories">
+
+            </ul>
+        </div>
+        <div class="todo-container--right">
+            <table cellspace="0" cellpadding="0" class="todo-table">
+                <tr>
+                    <th>Check</th>
+                    <th>Task</th>
+                    <th>Description</th>
+                    <th>Due</th>
+                    <th>Priority</th>
+                </tr>
+                <tr class="todo">
+                    <td><input type="checkbox" name="completed" id="todo-completed"></td>
+                    <td class="todo-title">
+                        <p>Placeholder todo</p>
+                    </td>
+                    <td class="todo-description">
+                        <p>Todo description</p>
+                    </td>
+                    <td class="todo-duedate">
+                        <p>5/12/2023</p>
+                    </td>
+                    <td class="todo-priority">
+                        <p>High</p>
+                    </td>
+                </tr>
+            </table>
+            <!-- <div class="todo">
+                <input type="checkbox" name="completed" id="todo-completed">
+                <p class="todo-title">Placeholder todo</p>
+                <p class="todo-description">Todo description</p>
+                <p class="todo-duedate">5/12/2023</p>
+                <p class="todo-priority">High</p>
+            </div> -->
+            <!-- <div class="todo">
+                <input type="checkbox" name="completed" id="todo-completed">
+                <p class="todo-title">Placeholder todo</p>
+                <p class="todo-description">Todo description</p>
+                <p class="todo-duedate">5/12/2023</p>
+                <p class="todo-priority">High</p>
+            </div> -->
         </div>
     </div>
-   </div>
-   <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
