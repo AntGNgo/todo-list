@@ -26,54 +26,45 @@
             <div class="new-todo">
                 <input type="text" placeholder="New todo..." id="new-todo">
             </div>
-            <table cellspace="0" cellpadding="0" class="todo-table">
-                <tr>
-                    <th></th>
-                    <th>Task</th>
-                    <th>Due</th>
-                    <th>Priority</th>
-                </tr>
-                <tr class="todo">
-                    <td><input type="checkbox" name="completed" id="todo-completed"></td>
-                    <td class="todo-title">
-                        <p>Clean Room</p>
-                    </td>
-                    <td class="todo-duedate">
-                        <p>5/12/2023</p>
-                    </td>
-                    <td class="todo-priority">
-                        <p>High</p>
-                    </td>
-                    <td><button>X</button></td>
-                </tr>
-                <tr class="todo">
-                    <td><input type="checkbox" name="completed" id="todo-completed"></td>
-                    <td class="todo-title">
-                        <p>Wash the Dishes</p>
-                    </td>
-                    <td class="todo-duedate">
-                        <p>5/12/2023</p>
-                    </td>
-                    <td class="todo-priority">
-                        <p>High</p>
-                    </td>
-                    <td><button>X</button></td>
-                </tr>
+            <table cellspace="0" cellpadding="0" class="todo-table" id="todo-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Task</th>
+                        <th>Due</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr class="todo">
+                        <td><input type="checkbox" name="completed" class="todo-completed"></td>
+                        <td class="todo-title">
+                            <p>Clean Room</p>
+                        </td>
+                        <td class="todo-duedate">
+                            <p>5/12/2023</p>
+                        </td>
+                        <td class="todo-priority">
+                            <p>High</p>
+                        </td>
+                        <td><button>X</button></td>
+                    </tr>
+                    <tr class="todo">
+                        <td><input type="checkbox" name="completed" class="todo-completed"></td>
+                        <td class="todo-title">
+                            <p>Wash the Dishes</p>
+                        </td>
+                        <td class="todo-duedate">
+                            <p>5/12/2023</p>
+                        </td>
+                        <td class="todo-priority">
+                            <p>High</p>
+                        </td>
+                        <td><button>X</button></td>
+                    </tr>
+
+                </tbody>
             </table>
-            <!-- <div class="todo">
-                <input type="checkbox" name="completed" id="todo-completed">
-                <p class="todo-title">Placeholder todo</p>
-                <p class="todo-description">Todo description</p>
-                <p class="todo-duedate">5/12/2023</p>
-                <p class="todo-priority">High</p>
-            </div> -->
-            <!-- <div class="todo">
-                <input type="checkbox" name="completed" id="todo-completed">
-                <p class="todo-title">Placeholder todo</p>
-                <p class="todo-description">Todo description</p>
-                <p class="todo-duedate">5/12/2023</p>
-                <p class="todo-priority">High</p>
-            </div> -->
         </div>
     </div>
     <script src="app.js"></script>
