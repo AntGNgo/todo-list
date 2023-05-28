@@ -1,7 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&display=swap');
 
+* {
+	box-sizing: border-box;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-family: 'Instrument Sans', sans-serif;
+	padding: 20px;
 }
 
 h1 {
@@ -10,8 +20,12 @@ h1 {
 
 .todo-container {
 	display: flex;
-	/* margin: 0 auto; */
-	/* justify-content: space-between; */
+	/* padding: 50px 100px; */
+}
+
+.todo-container--left {
+	height: 100%;
+	border-right: 3px solid black;
 }
 
 .todo-dates {
@@ -19,7 +33,6 @@ h1 {
 	flex-direction: column;
 	gap: 20px;
 	padding-right: 200px;
-	border-right: 3px solid black;
 }
 
 .todo-dates li {
@@ -27,6 +40,7 @@ h1 {
 }
 
 .todo-container--right {
+	margin-left: 400px;
 	display: flex;
 	flex-direction: column;
 }
@@ -40,7 +54,7 @@ body ul {
 }
 .todo-dates li:hover {
 	cursor: pointer;
-	border-bottom: 1px solid black;
+	transform: translateX(3px);
 }
 
 .new-todo {
@@ -51,4 +65,25 @@ body ul {
 
 .strike-out {
 	text-decoration: line-through;
+}
+
+#new-project-btn {
+	display: flex;
+	align-items: center;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	background-color: white;
+}
+
+#new-project-name {
+	width: 200px;
+	margin-left: 30px;
+}
+
+#new-project-btn:hover {
+	transform: translateX(3px);
+}
+
+.hidden {
+	display: none;
 }

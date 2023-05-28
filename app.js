@@ -4,14 +4,16 @@ const newPriority = document.getElementById('new-priority');
 
 // Array of Task Objects
 const todos = [];
+const projects = [];
 
 class Task {
-	constructor(task, date, priority) {
+	constructor(task, date, priority, project) {
 		this.task = task;
 		this.date = date;
 		this.priority = priority;
 		this.completed = false;
 		this.id = Math.floor(Math.random() * 5000);
+		this.project = project;
 	}
 
 	pushToList(todoList) {
@@ -92,5 +94,33 @@ const appendTodo = (task, date, priority, id) => {
 				newRow.remove();
 			}
 		});
+	});
+};
+
+// Project Logic
+const projectsList = document.getElementById('projects-list');
+const newProjectButton = document.getElementById('new-project-btn');
+const newProjectName = document.getElementById('new-project-name');
+
+newProjectButton.addEventListener('click', () => {
+	newProjectName.classList.toggle('hidden');
+});
+
+newProjectName.addEventListener('keypress', (e) => {
+	if (e.key === 'Enter' && e.target.value.trim() !== '') {
+		projects.push(e.target.value);
+		renderProjects();
+		newProjectName.classList.toggle('hidden');
+	}
+});
+
+const renderProjects = () => {
+	while (projectsList.hasChildNodes()) {
+		projectsList.removeChild(projectsList.lastChild);
+	}
+	projects.forEach((project) => {
+		const item = document.createElement('li');
+		item.textContent = project;
+		projectsList.appendChild(item);
 	});
 };
