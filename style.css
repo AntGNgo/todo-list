@@ -52,6 +52,7 @@ h1 {
 body ul {
 	list-style-type: none;
 }
+
 .todo-dates li:hover {
 	cursor: pointer;
 	transform: translateX(3px);
@@ -90,6 +91,11 @@ body ul {
 
 #new-project-btn:hover {
 	transform: translateX(3px);
+}
+
+.project:hover {
+	transform: translateX(3px);
+	cursor: pointer;
 }
 
 .hidden {

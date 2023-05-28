@@ -3,6 +3,18 @@ const addTodoBtn = document.getElementById('add-todo-btn');
 const newTodoDate = document.getElementById('new-todo-date');
 const newPriority = document.getElementById('new-priority');
 
+const projectsList = document.getElementById('projects-list');
+const newProjectButton = document.getElementById('new-project-btn');
+const newProjectName = document.getElementById('new-project-name');
+const projectsDropDown = document.getElementById('project');
+
+const views = ['today', 'week', 'someday'];
+
+const activeView = document.getElementById('active-view');
+const todayView = document.getElementById('today-view');
+const weekView = document.getElementById('week-view');
+const somedayView = document.getElementById('someday-view');
+
 // Array of Task and Projects
 const todos = [];
 const projects = [];
@@ -34,19 +46,26 @@ newTodo.addEventListener('keypress', (e) => {
 
 // Add Todo when add task button is clicked
 addTodoBtn.addEventListener('click', () => {
-	createTask(newTodo);
+	if (newTodo.value.trim() !== '') {
+		createTask(newTodo);
+	}
 });
 
 // Shared function for both new task enter options
 const createTask = () => {
-	let task = new Task(newTodo.value, newTodoDate.value, newPriority.value);
+	let task = new Task(
+		newTodo.value,
+		newTodoDate.value,
+		newPriority.value,
+		projectsDropDown.value
+	);
 	task.pushToList(todos);
 	newTodo.value = '';
-	appendTodo(task.task, task.date, task.priority, task.id);
+	appendTodo(task.task, task.date, task.priority, task.project, task.id);
 };
 
 // Append to task to DOM
-const appendTodo = (task, date, priority, id) => {
+const appendTodo = (task, date, priority, project, id) => {
 	const tBodyRef = document.getElementById('tbody');
 
 	const newRow = tBodyRef.insertRow();
@@ -61,7 +80,6 @@ const appendTodo = (task, date, priority, id) => {
 		newRow.classList.toggle('strike-out');
 		todos.forEach((todo) => {
 			if (parseInt(todo.id) === parseInt(id)) {
-				console.log('run');
 				todo.completed === false
 					? (todo.completed = true)
 					: (todo.completed = false);
@@ -81,7 +99,6 @@ const appendTodo = (task, date, priority, id) => {
 	const cellDatePara = document.createElement('p');
 	cellDatePara.classList.add('todo-duedate');
 	cellDatePara.textContent = date;
-	console.log(cellDatePara);
 	cellDate.appendChild(cellDatePara);
 
 	const cellPriority = newRow.insertCell();
@@ -93,7 +110,7 @@ const appendTodo = (task, date, priority, id) => {
 	const cellProject = newRow.insertCell();
 	const cellProjectPara = document.createElement('p');
 	cellProjectPara.classList.add('todo-project');
-	cellProjectPara.textContent = 'Test for now';
+	cellProjectPara.textContent = project;
 	cellProject.appendChild(cellProjectPara);
 
 	const deleteCell = newRow.insertCell();
@@ -115,11 +132,6 @@ const appendTodo = (task, date, priority, id) => {
 };
 
 // Project Logic
-const projectsList = document.getElementById('projects-list');
-const newProjectButton = document.getElementById('new-project-btn');
-const newProjectName = document.getElementById('new-project-name');
-const projectsDropDown = document.getElementById('project');
-
 newProjectButton.addEventListener('click', () => {
 	newProjectName.classList.toggle('hidden');
 });
@@ -139,8 +151,13 @@ const renderProjects = () => {
 	}
 	projects.forEach((project) => {
 		const item = document.createElement('li');
+		item.classList.add('project');
 		item.textContent = project;
 		projectsList.appendChild(item);
+
+		item.addEventListener('click', () => {
+			activeView.textContent = project;
+		});
 	});
 };
 
@@ -160,3 +177,17 @@ const updateProjectsDropdown = () => {
 		projectsDropDown.appendChild(option);
 	});
 };
+
+// Views
+
+todayView.addEventListener('click', () => {
+	activeView.textContent = 'Today';
+});
+
+weekView.addEventListener('click', () => {
+	activeView.textContent = 'This Week';
+});
+
+somedayView.addEventListener('click', () => {
+	activeView.textContent = 'Someday';
+});

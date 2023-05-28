@@ -15,9 +15,9 @@
         <div class="todo-container--left">
             <h2>Tasks</h2>
             <ul class="todo-dates">
-                <li>Today</li>
-                <li>This Week</li>
-                <li>Someday</li>
+                <li id="today-view">Today</li>
+                <li id="week-view">This Week</li>
+                <li id="someday-view">Someday</li>
             </ul>
             <h2>Projects</h2>
             <ul id="projects-list">
@@ -29,6 +29,7 @@
             </ul>
         </div>
         <div class="todo-container--right">
+            <h1 id="active-view">Today</h1>
             <div class="new-todo">
                 <div class="new-todo-container">
                     <label for="new-todo-name">Task Name:</label>
