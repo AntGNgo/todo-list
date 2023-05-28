@@ -1,4 +1,5 @@
 const newTodo = document.getElementById('new-todo-name');
+const addTodoBtn = document.getElementById('add-todo-btn');
 const newTodoDate = document.getElementById('new-todo-date');
 const newPriority = document.getElementById('new-priority');
 
@@ -24,15 +25,25 @@ class Task {
 newTodo.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
 		if (e.target.value.trim() !== '') {
-			console.log(newTodoDate.value);
-			let task = new Task(e.target.value, newTodoDate.value, newPriority.value);
-			console.log(newTodoDate.value);
-			task.pushToList(todos);
-			e.target.value = '';
-			appendTodo(task.task, task.date, task.priority, task.id);
+			// let task = new Task(e.target.value, newTodoDate.value, newPriority.value);
+			// task.pushToList(todos);
+			// e.target.value = '';
+			// appendTodo(task.task, task.date, task.priority, task.id);
+			createTask();
 		}
 	}
 });
+
+addTodoBtn.addEventListener('click', () => {
+	createTask(newTodo);
+});
+
+const createTask = () => {
+	let task = new Task(newTodo.value, newTodoDate.value, newPriority.value);
+	task.pushToList(todos);
+	newTodo.value = '';
+	appendTodo(task.task, task.date, task.priority, task.id);
+};
 
 // Append to DOM
 const appendTodo = (task, date, priority, id) => {
