@@ -26,6 +26,12 @@
             <div class="new-todo">
                 <input type="text" placeholder="New todo..." id="new-todo-name">
                 <input type="date" id="new-todo-date">
+                <select name="priority" id="new-priority">
+                    <option value="-">None</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
             </div>
             <table cellspace="0" cellpadding="0" class="todo-table" id="todo-table">
                 <thead>
@@ -37,32 +43,6 @@
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    <tr class="todo">
-                        <td><input type="checkbox" name="completed" class="todo-completed"></td>
-                        <td class="todo-title">
-                            <p>Clean Room</p>
-                        </td>
-                        <td class="todo-duedate">
-                            <p>2023-05-23</p>
-                        </td>
-                        <td class="todo-priority">
-                            <p>High</p>
-                        </td>
-                        <td><button>X</button></td>
-                    </tr>
-                    <tr class="todo">
-                        <td><input type="checkbox" name="completed" class="todo-completed"></td>
-                        <td class="todo-title">
-                            <p>Wash the Dishes</p>
-                        </td>
-                        <td class="todo-duedate">
-                            <p>2023-05-25</p>
-                        </td>
-                        <td class="todo-priority">
-                            <p>High</p>
-                        </td>
-                        <td><button>X</button></td>
-                    </tr>
 
                 </tbody>
             </table>
