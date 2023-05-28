@@ -3,10 +3,11 @@ const addTodoBtn = document.getElementById('add-todo-btn');
 const newTodoDate = document.getElementById('new-todo-date');
 const newPriority = document.getElementById('new-priority');
 
-// Array of Task Objects
+// Array of Task and Projects
 const todos = [];
 const projects = [];
 
+// Task Class
 class Task {
 	constructor(task, date, priority, project) {
 		this.task = task;
@@ -22,22 +23,21 @@ class Task {
 	}
 }
 
+// Add Todo when enter key is pressed on input
 newTodo.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
 		if (e.target.value.trim() !== '') {
-			// let task = new Task(e.target.value, newTodoDate.value, newPriority.value);
-			// task.pushToList(todos);
-			// e.target.value = '';
-			// appendTodo(task.task, task.date, task.priority, task.id);
 			createTask();
 		}
 	}
 });
 
+// Add Todo when add task button is clicked
 addTodoBtn.addEventListener('click', () => {
 	createTask(newTodo);
 });
 
+// Shared function for both new task enter options
 const createTask = () => {
 	let task = new Task(newTodo.value, newTodoDate.value, newPriority.value);
 	task.pushToList(todos);
@@ -45,7 +45,7 @@ const createTask = () => {
 	appendTodo(task.task, task.date, task.priority, task.id);
 };
 
-// Append to DOM
+// Append to task to DOM
 const appendTodo = (task, date, priority, id) => {
 	const tBodyRef = document.getElementById('tbody');
 
@@ -90,6 +90,12 @@ const appendTodo = (task, date, priority, id) => {
 	cellPriorityPara.textContent = priority;
 	cellPriority.appendChild(cellPriorityPara);
 
+	const cellProject = newRow.insertCell();
+	const cellProjectPara = document.createElement('p');
+	cellProjectPara.classList.add('todo-project');
+	cellProjectPara.textContent = 'Test for now';
+	cellProject.appendChild(cellProjectPara);
+
 	const deleteCell = newRow.insertCell();
 	const deleteBtn = document.createElement('button');
 	deleteBtn.textContent = 'X';
@@ -112,6 +118,7 @@ const appendTodo = (task, date, priority, id) => {
 const projectsList = document.getElementById('projects-list');
 const newProjectButton = document.getElementById('new-project-btn');
 const newProjectName = document.getElementById('new-project-name');
+const projectsDropDown = document.getElementById('project');
 
 newProjectButton.addEventListener('click', () => {
 	newProjectName.classList.toggle('hidden');
@@ -120,6 +127,7 @@ newProjectButton.addEventListener('click', () => {
 newProjectName.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter' && e.target.value.trim() !== '') {
 		projects.push(e.target.value);
+		updateProjectsDropdown();
 		renderProjects();
 		newProjectName.classList.toggle('hidden');
 	}
@@ -133,5 +141,22 @@ const renderProjects = () => {
 		const item = document.createElement('li');
 		item.textContent = project;
 		projectsList.appendChild(item);
+	});
+};
+
+const updateProjectsDropdown = () => {
+	while (projectsDropDown.hasChildNodes()) {
+		projectsDropDown.removeChild(projectsDropDown.lastChild);
+	}
+	const option = document.createElement('option');
+	option.setAttribute('value', 'none');
+	option.textContent = 'None';
+	projectsDropDown.appendChild(option);
+
+	projects.forEach((project) => {
+		const option = document.createElement('option');
+		option.setAttribute('value', project);
+		option.textContent = project;
+		projectsDropDown.appendChild(option);
 	});
 };
