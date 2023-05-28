@@ -1,4 +1,5 @@
-const newTodo = document.getElementById('new-todo');
+const newTodo = document.getElementById('new-todo-name');
+const newTodoDate = document.getElementById('new-todo-date');
 
 // Array of Task Objects
 const todos = [
@@ -20,25 +21,25 @@ class Task {
 
 	pushToList(todoList) {
 		todoList.push(this);
-		todoList.forEach((todo) => {
-			console.log(todo);
-		});
 	}
 }
 
 newTodo.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
-		let task = new Task(e.target.value, '2/2/2', 0);
-		task.pushToList(todos);
-		e.target.value = '';
-		appendTodo(task.task);
+		if (e.target.value.trim() !== '') {
+			console.log(newTodoDate.value);
+			let task = new Task(e.target.value, newTodoDate.value, 0);
+			console.log(newTodoDate.value);
+			task.pushToList(todos);
+			e.target.value = '';
+			appendTodo(task.task, task.date);
+		}
 	}
 });
 
 // Append to DOM
 const appendTodo = (task, date, priority) => {
 	const tBodyRef = document.getElementById('tbody');
-	console.log(tBodyRef);
 
 	const newRow = tBodyRef.insertRow();
 
@@ -55,6 +56,12 @@ const appendTodo = (task, date, priority) => {
 	cellTitlePara.classList.add('todo-title');
 	cellTitlePara.textContent = task;
 	cellTitle.appendChild(cellTitlePara);
-};
 
-const tdCheckbox = document.createElement('td');
+	const cellDate = newRow.insertCell();
+	const cellDatePara = document.createElement('p');
+	cellDatePara.classList.add('todo-duedate');
+	console.log(`Passed value for date: ${date}`);
+	cellDatePara.textContent = date;
+	console.log(cellDatePara);
+	cellDate.appendChild(cellDatePara);
+};
