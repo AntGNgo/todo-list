@@ -48,3 +48,7 @@ body ul {
 	justify-content: center;
 	margin-bottom: 20px;
 }
+
+.strike-out {
+	text-decoration: line-through;
+}

@@ -52,6 +52,10 @@ const appendTodo = (task, date, priority, id) => {
 	const inputCheckbox = document.createElement('input');
 	inputCheckbox.setAttribute('type', 'checkbox');
 
+	inputCheckbox.addEventListener('click', () => {
+		newRow.classList.toggle('strike-out');
+	});
+
 	cellInput.appendChild(inputCheckbox);
 
 	const cellTitle = newRow.insertCell();
