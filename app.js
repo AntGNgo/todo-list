@@ -3,15 +3,7 @@ const newTodoDate = document.getElementById('new-todo-date');
 const newPriority = document.getElementById('new-priority');
 
 // Array of Task Objects
-const todos = [
-	{
-		task: 'Wash the Dishes',
-		dueDate: '5/12/2023',
-		priority: 'low',
-		completed: false,
-		id: '123',
-	},
-];
+const todos = [];
 
 class Task {
 	constructor(task, date, priority) {
@@ -54,6 +46,14 @@ const appendTodo = (task, date, priority, id) => {
 
 	inputCheckbox.addEventListener('click', () => {
 		newRow.classList.toggle('strike-out');
+		todos.forEach((todo) => {
+			if (parseInt(todo.id) === parseInt(id)) {
+				console.log('run');
+				todo.completed === false
+					? (todo.completed = true)
+					: (todo.completed = false);
+			}
+		});
 	});
 
 	cellInput.appendChild(inputCheckbox);
