@@ -1,8 +1,13 @@
 const viewUpdate = (newView) => {
 	const activeView = document.getElementById('active-view');
+	const allView = document.getElementById('all-view');
 	const todayView = document.getElementById('today-view');
 	const weekView = document.getElementById('week-view');
 	const somedayView = document.getElementById('someday-view');
+
+	allView.addEventListener('click', () => {
+		activeView.textContent = 'All';
+	});
 
 	todayView.addEventListener('click', () => {
 		activeView.textContent = 'Today';
