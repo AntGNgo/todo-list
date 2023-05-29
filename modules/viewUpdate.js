@@ -1,5 +1,3 @@
-import renderTodos from './renderTodos';
-
 const viewUpdate = (newView) => {
 	const activeView = document.getElementById('active-view');
 	const todayView = document.getElementById('today-view');

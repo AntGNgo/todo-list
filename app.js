@@ -12,7 +12,7 @@ const newProjectButton = document.getElementById('new-project-btn');
 const newProjectName = document.getElementById('new-project-name');
 const projectsDropDown = document.getElementById('project');
 
-const views = ['today', 'week', 'someday'];
+const views = ['all', 'today', 'week', 'someday'];
 viewUpdate();
 
 // Array of Task and Projects
@@ -58,6 +58,7 @@ newProjectName.addEventListener('keypress', (e) => {
 		updateProjectsDropdown();
 		renderProjects();
 		newProjectName.classList.toggle('hidden');
+		e.target.value = '';
 	}
 });
 

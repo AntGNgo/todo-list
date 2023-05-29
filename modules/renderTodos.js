@@ -1,7 +1,6 @@
 const renderTodos = (todos, projectFilter) => {
-	console.log(todos);
 	// Clear DOM
-	const tBodyRef = document.getElementById('tbody');
+	const todyRef = document.getElementById('tbody');
 	while (tBodyRef.hasChildNodes()) {
 		tBodyRef.removeChild(tBodyRef.lastChild);
 	}
