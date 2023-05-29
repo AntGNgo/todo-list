@@ -1,12 +1,12 @@
-const appendTodo = (todos) => {
+const renderTodos = (todos, projectFilter) => {
+	console.log(todos);
 	// Clear DOM
 	const tBodyRef = document.getElementById('tbody');
 	while (tBodyRef.hasChildNodes()) {
 		tBodyRef.removeChild(tBodyRef.lastChild);
 	}
 
-	// Iterate over the todo list and append to DOM
-	todos.forEach((todo) => {
+	const renderMethod = (todo) => {
 		const newRow = tBodyRef.insertRow();
 
 		newRow.classList.add('todo');
@@ -68,7 +68,20 @@ const appendTodo = (todos) => {
 				}
 			});
 		});
-	});
+	};
+
+	// Iterate over the todo list and append to DOM
+	if (!projectFilter) {
+		todos.forEach((todo) => {
+			renderMethod(todo);
+		});
+	} else {
+		todos.forEach((todo) => {
+			if (todo.project === projectFilter) {
+				renderMethod(todo);
+			}
+		});
+	}
 };
 
-export default appendTodo;
+export default renderTodos;

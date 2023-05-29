@@ -1,6 +1,6 @@
 import Task from './modules/taskClass.js';
 import viewUpdate from './modules/viewUpdate.js';
-import appendTodo from './modules/appendTodo.js';
+import renderTodos from './modules/renderTodos.js';
 
 const newTodo = document.getElementById('new-todo-name');
 const addTodoBtn = document.getElementById('add-todo-btn');
@@ -43,7 +43,7 @@ const createTask = () => {
 	);
 	task.pushToList(todos);
 	newTodo.value = '';
-	appendTodo(todos);
+	renderTodos(todos);
 	// appendTodo(task.task, task.date, task.priority, task.project, task.id, todos);
 };
 
@@ -72,7 +72,8 @@ const renderProjects = () => {
 		projectsList.appendChild(item);
 
 		item.addEventListener('click', () => {
-			activeView.textContent = project;
+			viewUpdate(project);
+			renderTodos(todos, project);
 		});
 	});
 };

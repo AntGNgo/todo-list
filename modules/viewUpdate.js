@@ -1,4 +1,6 @@
-const viewUpdate = () => {
+import renderTodos from './renderTodos';
+
+const viewUpdate = (newView) => {
 	const activeView = document.getElementById('active-view');
 	const todayView = document.getElementById('today-view');
 	const weekView = document.getElementById('week-view');
@@ -15,6 +17,10 @@ const viewUpdate = () => {
 	somedayView.addEventListener('click', () => {
 		activeView.textContent = 'Someday';
 	});
+
+	if (newView) {
+		activeView.textContent = newView;
+	}
 };
 
 export default viewUpdate;
