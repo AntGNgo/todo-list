@@ -13,7 +13,6 @@ const newProjectName = document.getElementById('new-project-name');
 const projectsDropDown = document.getElementById('project');
 
 const views = ['today', 'week', 'someday'];
-
 viewUpdate();
 
 // Array of Task and Projects
@@ -93,3 +92,6 @@ const updateProjectsDropdown = () => {
 		projectsDropDown.appendChild(option);
 	});
 };
+
+// Get Today's Date and see whazzup
+const today = new Date();
