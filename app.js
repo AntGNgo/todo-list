@@ -1,3 +1,7 @@
+import Task from './modules/taskClass.js';
+import viewUpdate from './modules/viewUpdate.js';
+import appendTodo from './modules/appendTodo.js';
+
 const newTodo = document.getElementById('new-todo-name');
 const addTodoBtn = document.getElementById('add-todo-btn');
 const newTodoDate = document.getElementById('new-todo-date');
@@ -10,32 +14,12 @@ const projectsDropDown = document.getElementById('project');
 
 const views = ['today', 'week', 'someday'];
 
-const activeView = document.getElementById('active-view');
-const todayView = document.getElementById('today-view');
-const weekView = document.getElementById('week-view');
-const somedayView = document.getElementById('someday-view');
+viewUpdate();
 
 // Array of Task and Projects
 const todos = [];
 const projects = [];
 
-// Task Class
-class Task {
-	constructor(task, date, priority, project) {
-		this.task = task;
-		this.date = date;
-		this.priority = priority;
-		this.completed = false;
-		this.id = Math.floor(Math.random() * 5000);
-		this.project = project;
-	}
-
-	pushToList(todoList) {
-		todoList.push(this);
-	}
-}
-
-// Add Todo when enter key is pressed on input
 newTodo.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
 		if (e.target.value.trim() !== '') {
@@ -44,7 +28,6 @@ newTodo.addEventListener('keypress', (e) => {
 	}
 });
 
-// Add Todo when add task button is clicked
 addTodoBtn.addEventListener('click', () => {
 	if (newTodo.value.trim() !== '') {
 		createTask(newTodo);
@@ -61,74 +44,7 @@ const createTask = () => {
 	);
 	task.pushToList(todos);
 	newTodo.value = '';
-	appendTodo(task.task, task.date, task.priority, task.project, task.id);
-};
-
-// Append to task to DOM
-const appendTodo = (task, date, priority, project, id) => {
-	const tBodyRef = document.getElementById('tbody');
-
-	const newRow = tBodyRef.insertRow();
-
-	newRow.classList.add('todo');
-	newRow.setAttribute('id', id);
-	const cellInput = newRow.insertCell();
-	const inputCheckbox = document.createElement('input');
-	inputCheckbox.setAttribute('type', 'checkbox');
-
-	inputCheckbox.addEventListener('click', () => {
-		newRow.classList.toggle('strike-out');
-		todos.forEach((todo) => {
-			if (parseInt(todo.id) === parseInt(id)) {
-				todo.completed === false
-					? (todo.completed = true)
-					: (todo.completed = false);
-			}
-		});
-	});
-
-	cellInput.appendChild(inputCheckbox);
-
-	const cellTitle = newRow.insertCell();
-	const cellTitlePara = document.createElement('p');
-	cellTitlePara.classList.add('todo-title');
-	cellTitlePara.textContent = task;
-	cellTitle.appendChild(cellTitlePara);
-
-	const cellDate = newRow.insertCell();
-	const cellDatePara = document.createElement('p');
-	cellDatePara.classList.add('todo-duedate');
-	cellDatePara.textContent = date;
-	cellDate.appendChild(cellDatePara);
-
-	const cellPriority = newRow.insertCell();
-	const cellPriorityPara = document.createElement('p');
-	cellPriorityPara.classList.add('todo-priority');
-	cellPriorityPara.textContent = priority;
-	cellPriority.appendChild(cellPriorityPara);
-
-	const cellProject = newRow.insertCell();
-	const cellProjectPara = document.createElement('p');
-	cellProjectPara.classList.add('todo-project');
-	cellProjectPara.textContent = project;
-	cellProject.appendChild(cellProjectPara);
-
-	const deleteCell = newRow.insertCell();
-	const deleteBtn = document.createElement('button');
-	deleteBtn.textContent = 'X';
-	deleteBtn.setAttribute('id', id);
-	deleteCell.appendChild(deleteBtn);
-
-	// Event Listner to Delete Task
-	deleteBtn.addEventListener('click', (e) => {
-		todos.forEach((todo) => {
-			if (parseInt(deleteBtn.id) === parseInt(todo.id)) {
-				const index = todos.indexOf(todo);
-				todos.splice(index, 1);
-				newRow.remove();
-			}
-		});
-	});
+	appendTodo(task.task, task.date, task.priority, task.project, task.id, todos);
 };
 
 // Project Logic
@@ -177,17 +93,3 @@ const updateProjectsDropdown = () => {
 		projectsDropDown.appendChild(option);
 	});
 };
-
-// Views
-
-todayView.addEventListener('click', () => {
-	activeView.textContent = 'Today';
-});
-
-weekView.addEventListener('click', () => {
-	activeView.textContent = 'This Week';
-});
-
-somedayView.addEventListener('click', () => {
-	activeView.textContent = 'Someday';
-});
