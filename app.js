@@ -43,7 +43,8 @@ const createTask = () => {
 	);
 	task.pushToList(todos);
 	newTodo.value = '';
-	appendTodo(task.task, task.date, task.priority, task.project, task.id, todos);
+	appendTodo(todos);
+	// appendTodo(task.task, task.date, task.priority, task.project, task.id, todos);
 };
 
 // Project Logic
