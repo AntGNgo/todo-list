@@ -76,7 +76,10 @@ const renderTodos = (todos, projectFilter) => {
     });
   } else {
     todos.forEach((todo) => {
-      if (todo.project === projectFilter) {
+      if (
+        todo.project === projectFilter &&
+        Date.parse(todo.date) === Date.parse("2023-5-31")
+      ) {
         renderMethod(todo);
       }
     });
