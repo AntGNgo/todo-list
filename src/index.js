@@ -1,6 +1,6 @@
-import Task from "./modules/taskClass.js";
-// import viewUpdate from "./modules/viewUpdate.js";
-import renderTodos from "./modules/renderTodos.js";
+import Task from "./taskClass.js";
+// import viewUpdate from "./viewUpdate.js";
+import renderTodos from "./renderTodos.js";
 
 const newTodo = document.getElementById("new-todo-name");
 const addTodoBtn = document.getElementById("add-todo-btn");
