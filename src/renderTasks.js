@@ -1,29 +1,34 @@
 const renderTasks = (tasksArray, filter) => {
-  const tBody = document.getElementById("tbody");
-  // TODO make option for filter
-  if (!filter) {
-    while (tBody.hasChildNodes()) {
-      tBody.removeChild(tBody.lastChild);
-    }
-    tasksArray.forEach((task) => {
-      const newRow = tBody.insertRow();
-      const taskNameCell = newRow.insertCell();
-      let textContent = document.createTextNode(task.nameValue);
-      taskNameCell.appendChild(textContent);
+	const tasksDOMRef = document.getElementById('tasks');
+	// TODO make option for filter
+	if (!filter) {
+		while (tasksDOMRef.hasChildNodes()) {
+			tasksDOMRef.removeChild(tasksDOMRef.lastChild);
+		}
+		tasksArray.forEach((task) => {
+			console.log(task.nameValue);
+			const div = document.createElement('div');
+			div.classList.add('task');
 
-      const taskDueCell = newRow.insertCell();
-      textContent = document.createTextNode(task.dateValue);
-      taskDueCell.appendChild(textContent);
+			const taskName = document.createElement('p');
+			taskName.textContent = task.nameValue;
+			div.appendChild(taskName);
 
-      const taskPriorityCell = newRow.insertCell();
-      textContent = document.createTextNode(task.priorityValue);
-      taskPriorityCell.appendChild(textContent);
+			const taskDue = document.createElement('p');
+			taskDue.textContent = task.dateValue;
+			div.appendChild(taskDue);
 
-      const taskProjectCell = newRow.insertCell();
-      textContent = document.createTextNode(task.projectValue);
-      taskProjectCell.appendChild(textContent);
-    });
-  }
+			const taskPriority = document.createElement('p');
+			taskPriority.textContent = task.priorityValue;
+			div.appendChild(taskPriority);
+
+			const taskProject = document.createElement('p');
+			taskProject.textContent = task.projectValue;
+			div.appendChild(taskProject);
+
+			tasksDOMRef.appendChild(div);
+		});
+	}
 };
 
 export default renderTasks;
