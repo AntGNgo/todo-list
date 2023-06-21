@@ -56,6 +56,7 @@
             <label for="new-todo-project">Project:</label>
             <select name="project" id="new-todo-project">
               <option value="none">None</option>
+              <option value="My Project">MyProject</option>
             </select>
           </div>
           <button id="add-todo-btn">Add Task</button>
@@ -63,10 +64,10 @@
         <table cellspace="0" cellpadding="0" class="todo-table" id="todo-table">
           <thead>
             <tr>
-              <th>Task</th>
-              <th>Due</th>
-              <th>Priority</th>
-              <th>Project</th>
+              <th id="task-header">Task</th>
+              <th id="due-header">Due</th>
+              <th id="priority-header">Priority</th>
+              <th id="project-header">Project</th>
             </tr>
           </thead>
           <tbody id="tbody"></tbody>
