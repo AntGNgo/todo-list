@@ -7,9 +7,9 @@ const newTask = () => {
   const nameValue = name.value;
   const dateValue = date.value;
   const priorityValue = priority.value;
-  const ProjectValue = project.value;
+  const projectValue = project.value;
 
-  return { nameValue, dateValue, priorityValue, ProjectValue };
+  return { nameValue, dateValue, priorityValue, projectValue };
 };
 
 export default newTask;
