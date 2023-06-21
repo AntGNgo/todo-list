@@ -46,8 +46,22 @@ h1 {
   flex-direction: column;
 }
 
-#tbody tr {
-  text-align: center;
+.todo-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-list-headers {
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 200px; */
+}
+
+.task {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  /* gap: 200px; */
 }
 
 body ul {
