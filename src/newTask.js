@@ -9,6 +9,10 @@ const newTask = () => {
   const priorityValue = priority.value;
   const projectValue = project.value;
 
+  if (nameValue.trim() === "") {
+    return {};
+  }
+
   return { nameValue, dateValue, priorityValue, projectValue };
 };
 

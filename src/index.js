@@ -10,9 +10,10 @@ const filter = "";
 addTodoBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const task = newTask();
-  todos.push(task);
-  console.log(task);
+  if (Object.keys(task).length !== 0) {
+    todos.push(task);
+    renderTasks(todos);
+  }
 
   //   If you render tasks here, if you're filtering by projects, it will reset the view to all tasks.
-  renderTasks(todos);
 });
