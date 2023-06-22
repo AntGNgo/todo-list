@@ -1,8 +1,10 @@
 import "./newProjectBtn";
 import newTask from "./newTask";
 import renderTasks from "./renderTasks";
+import newProject from "./newProject";
 
 const addTodoBtn = document.getElementById("add-todo-btn");
+const newProjectName = document.getElementById("new-project-name");
 const todos = [];
 const projects = [];
 const filter = "";
@@ -14,6 +16,11 @@ addTodoBtn.addEventListener("click", (e) => {
     todos.push(task);
     renderTasks(todos);
   }
+});
 
-  //   If you render tasks here, if you're filtering by projects, it will reset the view to all tasks.
+newProjectName.addEventListener("keypress", (e) => {
+  if (e.key === "Enter" && newProjectName.value.trim() !== "") {
+    const project = newProject(newProjectName.value.trim());
+    projects.push(project);
+  }
 });
