@@ -29,15 +29,19 @@ h1 {
   border-right: 3px solid black;
 }
 
-.todo-dates {
+#views {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-right: 200px;
 }
 
-.todo-dates li {
+#views li {
   border: 1px solid transparent;
+}
+
+#views li:hover {
+  border: 1px solid black;
 }
 
 .todo-container--right {
