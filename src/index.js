@@ -22,5 +22,12 @@ newProjectName.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && newProjectName.value.trim() !== "") {
     const project = newProject(newProjectName.value.trim());
     projects.push(project);
+
+    const projectBtn = document.getElementById(
+      newProjectName.value.trim().toLowerCase()
+    );
+    projectBtn.addEventListener("click", () => {
+      renderTasks(todos, project);
+    });
   }
 });

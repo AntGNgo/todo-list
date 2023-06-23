@@ -5,7 +5,6 @@ const newProject = (projectName) => {
     const li = document.createElement("li");
     li.setAttribute("id", projectName.toLowerCase());
     li.textContent = projectName;
-    console.log(li);
     views.appendChild(li);
 
     const option = document.createElement("option");
