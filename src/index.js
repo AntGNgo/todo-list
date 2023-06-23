@@ -29,5 +29,7 @@ newProjectName.addEventListener("keypress", (e) => {
     projectBtn.addEventListener("click", () => {
       renderTasks(todos, project);
     });
+    newProjectName.value = "";
+    newProjectName.classList.toggle("hidden");
   }
 });
