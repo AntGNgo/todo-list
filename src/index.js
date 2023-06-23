@@ -5,6 +5,7 @@ import newProject from "./newProject";
 
 const addTodoBtn = document.getElementById("add-todo-btn");
 const newProjectName = document.getElementById("new-project-name");
+
 const todos = [];
 const projects = [];
 const filter = "";
