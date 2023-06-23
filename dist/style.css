@@ -38,11 +38,12 @@ h1 {
 }
 
 #views li {
-  border: 1px solid transparent;
+  border-left: 3px solid transparent;
 }
 
 #views li:hover {
-  border: 1px solid black;
+  border-left: 3px solid black;
+  padding-left: 5px;
 }
 
 .todo-container--right {
