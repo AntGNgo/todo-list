@@ -1,3 +1,5 @@
+import deleteTask from "./deleteTask";
+
 const tasksDOMRef = document.getElementById("tasks");
 const render = (task) => {
   if (task.nameValue.trim() !== "") {
@@ -28,7 +30,19 @@ const render = (task) => {
     if (task.projectValue.trim() === "") {
       taskProject.textContent = "-";
     }
+
     div.appendChild(taskProject);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "X";
+    // set unique identifiers for deleting a task possible use an id
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.setAttribute("id", task.id);
+    div.appendChild(deleteBtn);
+
+    div.addEventListener("click", () => {
+      div.classList.toggle("completed");
+    });
 
     tasksDOMRef.appendChild(div);
   }
@@ -40,7 +54,6 @@ const renderTasks = (tasksArray, filter) => {
 
   if (!filter) {
     tasksArray.forEach((task) => {
-      console.log(`rendering: ${task}`);
       render(task);
     });
   } else {

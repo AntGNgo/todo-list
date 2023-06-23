@@ -8,12 +8,13 @@ const newTask = () => {
   const dateValue = date.value;
   const priorityValue = priority.value;
   const projectValue = project.value;
+  const id = Math.floor(Math.random() * 2000);
 
   if (nameValue.trim() === "") {
     return {};
   }
 
-  return { nameValue, dateValue, priorityValue, projectValue };
+  return { nameValue, dateValue, priorityValue, projectValue, id };
 };
 
 export default newTask;

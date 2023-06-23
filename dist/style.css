@@ -47,7 +47,7 @@ h1 {
 }
 
 .todo-container--right {
-  width: 80%;
+  width: 70%;
   display: flex;
   margin: 0 20px;
   flex-direction: column;
@@ -70,9 +70,14 @@ h1 {
   width: 300px;
 }
 
+#tasks {
+  position: relative;
+}
+
 .task {
   text-align: center;
   display: flex;
+  align-items: center;
   gap: 200px;
 }
 
@@ -132,4 +137,8 @@ body ul {
 
 .hidden {
   display: none;
+}
+
+.completed {
+  text-decoration: line-through;
 }
