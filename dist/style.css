@@ -25,6 +25,7 @@ h1 {
 
 .todo-container--left {
   height: 100%;
+  width: 20vw;
   padding-right: 150px;
   border-right: 3px solid black;
 }
