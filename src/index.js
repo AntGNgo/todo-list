@@ -3,6 +3,7 @@ import newTask from "./newTask";
 import renderTasks from "./renderTasks";
 import newProject from "./newProject";
 import deleteTask from "./deleteTask";
+import changeHeader from "./changeHeader";
 
 const addTodoBtn = document.getElementById("add-todo-btn");
 const newProjectName = document.getElementById("new-project-name");
@@ -10,6 +11,12 @@ const newProjectName = document.getElementById("new-project-name");
 let todos = [];
 const projects = [];
 const filter = "";
+
+// Event Listener for the All Filter
+const allFilter = document.getElementById("all");
+allFilter.addEventListener("click", () => {
+  renderTasks(todos);
+});
 
 addTodoBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -38,6 +45,7 @@ newProjectName.addEventListener("keypress", (e) => {
       newProjectName.value.trim().toLowerCase()
     );
     projectBtn.addEventListener("click", () => {
+      changeHeader(project);
       renderTasks(todos, project);
     });
     newProjectName.value = "";

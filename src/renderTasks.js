@@ -3,7 +3,6 @@ import deleteTask from "./deleteTask";
 const tasksDOMRef = document.getElementById("tasks");
 const render = (task) => {
   if (task.nameValue.trim() !== "") {
-    console.log(task.nameValue);
     const div = document.createElement("div");
     div.classList.add("task");
 
