@@ -48,6 +48,13 @@ newProjectName.addEventListener("keypress", (e) => {
       changeHeader(project);
       renderTasks(todos, project);
     });
+
+    const projectDeleteBtn = document.getElementById(`${project}-delete`);
+    projectDeleteBtn.addEventListener("click", () => {
+      changeHeader("All");
+      renderTasks(todos);
+    });
+
     newProjectName.value = "";
     newProjectName.classList.toggle("hidden");
   }

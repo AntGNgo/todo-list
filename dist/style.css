@@ -142,3 +142,24 @@ body ul {
 .completed {
   text-decoration: line-through;
 }
+
+.li-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.li-container button {
+  display: none;
+  border: none;
+  background: white;
+  cursor: pointer;
+}
+
+.li-container {
+  width: 100px;
+}
+
+.li-container:hover button {
+  display: block;
+}
